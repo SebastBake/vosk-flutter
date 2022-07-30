@@ -51,6 +51,7 @@ public class VoskFlutterPlugin implements FlutterPlugin, MethodCallHandler, Acti
 
       //LOAD AND INIT MODEL
       case "initModel":
+        check(this.activity);
         speechRecognition.initModel(call.arguments());
         result.success("success");
         break;
@@ -95,7 +96,6 @@ public class VoskFlutterPlugin implements FlutterPlugin, MethodCallHandler, Acti
   @Override
   public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
     this.activity = binding.getActivity();
-    check(activity);
   }
 
   @Override
